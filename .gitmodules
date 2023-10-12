@@ -1,0 +1,3 @@
+[submodule "TangoCMakeModules"]
+	path = TangoCMakeModules
+	url = https://gitlab.com/tango-controls/TangoCMakeModules
