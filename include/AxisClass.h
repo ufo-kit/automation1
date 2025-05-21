@@ -24,6 +24,9 @@
 
 namespace Axis_ns
 {
+    /**
+     * Position attribute
+     */
     class positionAttrib final : public Tango::Attr
     {
     public:
@@ -47,6 +50,9 @@ namespace Axis_ns
     };
 
 
+    /**
+     * Attribute for the positive soft limit
+     */
     class positiveSoftlimitAttrib final : public Tango::Attr
     {
     public:
@@ -69,6 +75,9 @@ namespace Axis_ns
         }
     };
 
+    /**
+     * Attribute for the negative soft limit
+     */
     class negativeSoftlimitAttrib final : public Tango::Attr
     {
     public:
@@ -91,6 +100,9 @@ namespace Axis_ns
         }
     };
 
+    /**
+     * Attribute for the accelerating state
+     */
     class acceleratingAttrib final : public Tango::Attr
     {
     public:
@@ -111,6 +123,9 @@ namespace Axis_ns
         }
     };
 
+    /**
+     * Attribute to read the faults
+     */
     class faultsAttrib final : public Tango::Attr
     {
     public:
@@ -130,11 +145,14 @@ namespace Axis_ns
         }
     };
 
+    /**
+     * Attribute to read the current position target
+     */
     class positionTargetAttrib final : public Tango::Attr
     {
     public:
         positionTargetAttrib() : Attr("position_command",
-                                      Tango::DEV_DOUBLE, Tango::READ_WRITE)
+                                      Tango::DEV_DOUBLE, Tango::READ)
         {
         };
 
@@ -150,6 +168,11 @@ namespace Axis_ns
         }
     };
 
+    /**
+     * Attribute to read the current motion velocity
+     *
+     * The motion velocity is the target velocity when a position change is requested.
+     */
     class motionVelocityAttrib final : public Tango::Attr
     {
     public:
@@ -172,6 +195,9 @@ namespace Axis_ns
         }
     };
 
+    /**
+     * Attribute to read the positive hard limit
+     */
     class positiveHardLimitAttrib final : public Tango::Attr
     {
     public:
@@ -191,6 +217,9 @@ namespace Axis_ns
         }
     };
 
+    /**
+     * Attribute to read the negative hard limit
+     */
     class negativeHardLimitAttrib final : public Tango::Attr
     {
     public:
@@ -210,6 +239,9 @@ namespace Axis_ns
         }
     };
 
+    /**
+     * Command to enable the axis
+     */
     class EnableCommand final : public Tango::Command
     {
     public:
@@ -240,7 +272,9 @@ namespace Axis_ns
         }
     };
 
-
+    /**
+     * Command to acknowledge all faults
+     */
     class FaultAckAllCommand final : public Tango::Command
     {
     public:
@@ -271,6 +305,12 @@ namespace Axis_ns
         }
     };
 
+    /**
+     * Command to start the axis in freerun mode
+     *
+     * This command is used to run an axis with a constant velocity.
+     * Check the accelerating attribute to see if the axis has finished the acceleration phase.
+     */
     class FreerunCommand final : public Tango::Command
     {
     public:
@@ -301,6 +341,9 @@ namespace Axis_ns
         }
     };
 
+    /**
+     * Command to stop the axis
+     */
     class StopCommand final : public Tango::Command
     {
     public:
@@ -331,6 +374,9 @@ namespace Axis_ns
         }
     };
 
+    /**
+     * Command to home the axis
+     */
     class HomeCommand final : public Tango::Command
     {
     public:
@@ -361,6 +407,9 @@ namespace Axis_ns
         }
     };
 
+    /**
+     * Command to disable the axis
+     */
     class DisableCommand final : public Tango::Command
     {
     public:
@@ -391,6 +440,9 @@ namespace Axis_ns
         }
     };
 
+    /**
+     * Command to acknowledge a fault
+     */
     class FaultAckCommand final : public Tango::Command
     {
     public:
